@@ -152,4 +152,23 @@ struct CommandHandler {
             }
         }
     }
+
+    static func handle(_ args: [String]) async {
+        let data = FileHandle.standardInput.readDataToEndOfFile()
+        let stdin = String(data: data, encoding: .utf8) ?? ""
+
+        if isSessionStart(args) {
+            await handleSessionStart(args: args, stdin: stdin)
+        } else if isSessionEnd(args) {
+            await handleSessionEnd(args: args, stdin: stdin)
+        } else if isNotification(args) {
+            await handleNotification(args: args, stdin: stdin)
+        } else if isStop(args) {
+            await handleStop(args: args, stdin: stdin)
+        } else if isUserPromptSubmit(args) {
+            await handleUserPromptSubmit(args: args, stdin: stdin)
+        } else {
+            print("Unknown command")
+        }
+    }
 }
