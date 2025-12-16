@@ -25,4 +25,7 @@ struct CommandHandler {
     private static func isStop(_ args: [String]) -> Bool {
         return args.count > 1 && args[1] == "stop"
     }
+    
+    private static func handleSessionStart(args: [String], stdin: String) async {
+    }
 }
