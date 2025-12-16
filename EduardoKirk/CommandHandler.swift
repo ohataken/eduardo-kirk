@@ -37,4 +37,7 @@ struct CommandHandler {
 
     private static func handleStop(args: [String], stdin: String) async {
     }
+
+    private static func handleUserPromptSubmit(args: [String], stdin: String) async {
+    }
 }
