@@ -17,4 +17,8 @@ struct CommandHandler {
     private static func isUserPromptSubmit(_ args: [String]) -> Bool {
         return args.count > 1 && args[1] == "user-prompt-submit"
     }
+
+    private static func isNotification(_ args: [String]) -> Bool {
+        return args.count > 1 && args[1] == "notification"
+    }
 }
