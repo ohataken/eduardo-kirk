@@ -28,4 +28,7 @@ struct CommandHandler {
     
     private static func handleSessionStart(args: [String], stdin: String) async {
     }
+
+    private static func handleSessionEnd(args: [String], stdin: String) async {
+    }
 }
