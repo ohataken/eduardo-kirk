@@ -6,4 +6,7 @@
 //
 
 struct CommandHandler {
+    private static func isSessionStart(_ args: [String]) -> Bool {
+        return args.count > 1 && args[1] == "session-start"
+    }
 }
