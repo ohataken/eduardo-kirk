@@ -34,4 +34,7 @@ struct CommandHandler {
 
     private static func handleNotification(args: [String], stdin: String) async {
     }
+
+    private static func handleStop(args: [String], stdin: String) async {
+    }
 }
