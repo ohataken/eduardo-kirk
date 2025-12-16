@@ -21,4 +21,8 @@ struct CommandHandler {
     private static func isNotification(_ args: [String]) -> Bool {
         return args.count > 1 && args[1] == "notification"
     }
+
+    private static func isStop(_ args: [String]) -> Bool {
+        return args.count > 1 && args[1] == "stop"
+    }
 }
