@@ -29,6 +29,11 @@ struct CommandHandler {
     }
     
     private static func handleSessionStart(args: [String], stdin: String) async {
+        guard let payload = decodePayload(stdin, as: SessionStartHookPayload.self) else {
+            print("Failed to decode SessionStartHookPayload")
+            return
+        }
+
         let granted = await withCheckedContinuation { continuation in
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, _ in
                 continuation.resume(returning: granted)
@@ -54,6 +59,11 @@ struct CommandHandler {
     }
 
     private static func handleSessionEnd(args: [String], stdin: String) async {
+        guard let payload = decodePayload(stdin, as: SessionEndHookPayload.self) else {
+            print("Failed to decode SessionEndHookPayload")
+            return
+        }
+
         let granted = await withCheckedContinuation { continuation in
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, _ in
                 continuation.resume(returning: granted)
@@ -79,6 +89,11 @@ struct CommandHandler {
     }
 
     private static func handleNotification(args: [String], stdin: String) async {
+        guard let payload = decodePayload(stdin, as: NotificationHookPayload.self) else {
+            print("Failed to decode NotificationHookPayload")
+            return
+        }
+
         let granted = await withCheckedContinuation { continuation in
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, _ in
                 continuation.resume(returning: granted)
@@ -104,6 +119,11 @@ struct CommandHandler {
     }
 
     private static func handleStop(args: [String], stdin: String) async {
+        guard let payload = decodePayload(stdin, as: StopHookPayload.self) else {
+            print("Failed to decode StopHookPayload")
+            return
+        }
+
         let granted = await withCheckedContinuation { continuation in
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, _ in
                 continuation.resume(returning: granted)
@@ -129,6 +149,11 @@ struct CommandHandler {
     }
 
     private static func handleUserPromptSubmit(args: [String], stdin: String) async {
+        guard let payload = decodePayload(stdin, as: UserPromptSubmitHookPayload.self) else {
+            print("Failed to decode UserPromptSubmitHookPayload")
+            return
+        }
+
         let granted = await withCheckedContinuation { continuation in
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, _ in
                 continuation.resume(returning: granted)
