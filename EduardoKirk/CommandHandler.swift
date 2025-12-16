@@ -29,7 +29,13 @@ struct CommandHandler {
     }
     
     private static func handleSessionStart(args: [String], stdin: String) async {
-        guard let payload = decodePayload(stdin, as: SessionStartHookPayload.self) else {
+        guard !stdin.isEmpty, let data = stdin.data(using: .utf8) else {
+            print("Failed to decode SessionStartHookPayload")
+            return
+        }
+
+        let decoder = JSONDecoder()
+        guard let payload = try? decoder.decode(SessionStartHookPayload.self, from: data) else {
             print("Failed to decode SessionStartHookPayload")
             return
         }
@@ -59,7 +65,13 @@ struct CommandHandler {
     }
 
     private static func handleSessionEnd(args: [String], stdin: String) async {
-        guard let payload = decodePayload(stdin, as: SessionEndHookPayload.self) else {
+        guard !stdin.isEmpty, let data = stdin.data(using: .utf8) else {
+            print("Failed to decode SessionEndHookPayload")
+            return
+        }
+
+        let decoder = JSONDecoder()
+        guard let payload = try? decoder.decode(SessionEndHookPayload.self, from: data) else {
             print("Failed to decode SessionEndHookPayload")
             return
         }
@@ -89,7 +101,13 @@ struct CommandHandler {
     }
 
     private static func handleNotification(args: [String], stdin: String) async {
-        guard let payload = decodePayload(stdin, as: NotificationHookPayload.self) else {
+        guard !stdin.isEmpty, let data = stdin.data(using: .utf8) else {
+            print("Failed to decode NotificationHookPayload")
+            return
+        }
+
+        let decoder = JSONDecoder()
+        guard let payload = try? decoder.decode(NotificationHookPayload.self, from: data) else {
             print("Failed to decode NotificationHookPayload")
             return
         }
@@ -119,7 +137,13 @@ struct CommandHandler {
     }
 
     private static func handleStop(args: [String], stdin: String) async {
-        guard let payload = decodePayload(stdin, as: StopHookPayload.self) else {
+        guard !stdin.isEmpty, let data = stdin.data(using: .utf8) else {
+            print("Failed to decode StopHookPayload")
+            return
+        }
+
+        let decoder = JSONDecoder()
+        guard let payload = try? decoder.decode(StopHookPayload.self, from: data) else {
             print("Failed to decode StopHookPayload")
             return
         }
@@ -149,7 +173,13 @@ struct CommandHandler {
     }
 
     private static func handleUserPromptSubmit(args: [String], stdin: String) async {
-        guard let payload = decodePayload(stdin, as: UserPromptSubmitHookPayload.self) else {
+        guard !stdin.isEmpty, let data = stdin.data(using: .utf8) else {
+            print("Failed to decode UserPromptSubmitHookPayload")
+            return
+        }
+
+        let decoder = JSONDecoder()
+        guard let payload = try? decoder.decode(UserPromptSubmitHookPayload.self, from: data) else {
             print("Failed to decode UserPromptSubmitHookPayload")
             return
         }
