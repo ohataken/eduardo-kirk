@@ -13,4 +13,8 @@ struct CommandHandler {
     private static func isSessionEnd(_ args: [String]) -> Bool {
         return args.count > 1 && args[1] == "session-end"
     }
+    
+    private static func isUserPromptSubmit(_ args: [String]) -> Bool {
+        return args.count > 1 && args[1] == "user-prompt-submit"
+    }
 }
