@@ -12,15 +12,11 @@ struct NotificationHookPayload: Codable {
     let transcriptPath: String
     let cwd: String
     let hookEventName: String
-    let message: String
-    let notificationType: String
 
     enum CodingKeys: String, CodingKey {
         case sessionId = "session_id"
         case transcriptPath = "transcript_path"
         case cwd
         case hookEventName = "hook_event_name"
-        case message
-        case notificationType = "notification_type"
     }
 }
