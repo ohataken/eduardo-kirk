@@ -12,4 +12,5 @@ struct TranscriptPayload: Codable {
     let userType: String?
     let cwd: String?
     let timestamp: String?
+    let message: TranscriptMessagePayload?
 }
