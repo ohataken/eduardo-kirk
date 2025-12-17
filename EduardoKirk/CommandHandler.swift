@@ -29,7 +29,11 @@ struct CommandHandler {
     }
     
     static func isValidCommand(_ args: [String]) -> Bool {
-        return isSessionStart(args) || isSessionEnd(args) || isUserPromptSubmit(args) || isNotification(args) || isStop(args)
+        return isSessionStart(args) ||
+               isSessionEnd(args) ||
+               isUserPromptSubmit(args) ||
+               isNotification(args) ||
+               isStop(args)
     }
     
     private static func handleSessionStart(args: [String], stdin: String) async {

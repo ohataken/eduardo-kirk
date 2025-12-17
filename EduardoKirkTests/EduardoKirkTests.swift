@@ -16,42 +16,42 @@ struct EduardoKirkTests {
     
     @Test func testIsValidCommand_sessionStart() {
         let args = ["program", "session-start"]
-        #expect(CommandHandler.isValidCommand(args) == true)
+        #expect(CommandHandler.isValidCommand(args))
     }
     
     @Test func testIsValidCommand_sessionEnd() {
         let args = ["program", "session-end"]
-        #expect(CommandHandler.isValidCommand(args) == true)
+        #expect(CommandHandler.isValidCommand(args))
     }
     
     @Test func testIsValidCommand_userPromptSubmit() {
         let args = ["program", "user-prompt-submit"]
-        #expect(CommandHandler.isValidCommand(args) == true)
+        #expect(CommandHandler.isValidCommand(args))
     }
     
     @Test func testIsValidCommand_notification() {
         let args = ["program", "notification"]
-        #expect(CommandHandler.isValidCommand(args) == true)
+        #expect(CommandHandler.isValidCommand(args))
     }
     
     @Test func testIsValidCommand_stop() {
         let args = ["program", "stop"]
-        #expect(CommandHandler.isValidCommand(args) == true)
+        #expect(CommandHandler.isValidCommand(args))
     }
     
     @Test func testIsValidCommand_invalid() {
         let args = ["program", "invalid-command"]
-        #expect(CommandHandler.isValidCommand(args) == false)
+        #expect(!CommandHandler.isValidCommand(args))
     }
     
     @Test func testIsValidCommand_emptyArgs() {
         let args: [String] = []
-        #expect(CommandHandler.isValidCommand(args) == false)
+        #expect(!CommandHandler.isValidCommand(args))
     }
     
     @Test func testIsValidCommand_singleArg() {
         let args = ["program"]
-        #expect(CommandHandler.isValidCommand(args) == false)
+        #expect(!CommandHandler.isValidCommand(args))
     }
 
 }
