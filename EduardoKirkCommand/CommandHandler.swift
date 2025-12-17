@@ -47,6 +47,12 @@ struct CommandHandler {
             print("Failed to decode SessionStartHookPayload")
             return
         }
+
+        let process = Process()
+        process.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
+        process.arguments = ["-e", "display notification \"handleSessionStart\" with title \"handleSessionStart\" sound name \"Glass\""]
+        try? process.run()
+        process.waitUntilExit()
     }
 
     private static func handleSessionEnd(args: [String], stdin: String) {
@@ -60,6 +66,12 @@ struct CommandHandler {
             print("Failed to decode SessionEndHookPayload")
             return
         }
+
+        let process = Process()
+        process.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
+        process.arguments = ["-e", "display notification \"handleSessionEnd\" with title \"handleSessionEnd\" sound name \"Glass\""]
+        try? process.run()
+        process.waitUntilExit()
     }
 
     private static func handleNotification(args: [String], stdin: String) {
@@ -91,6 +103,14 @@ struct CommandHandler {
                 transcripts.append(transcript)
             }
         }
+
+        print(transcripts)
+
+        let process = Process()
+        process.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
+        process.arguments = ["-e", "display notification \"handleNotification\" with title \"handleNotification\" sound name \"Glass\""]
+        try? process.run()
+        process.waitUntilExit()
     }
 
     private static func handleStop(args: [String], stdin: String) {
@@ -104,6 +124,12 @@ struct CommandHandler {
             print("Failed to decode StopHookPayload")
             return
         }
+
+        let process = Process()
+        process.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
+        process.arguments = ["-e", "display notification \"handleStop\" with title \"handleStop\" sound name \"Glass\""]
+        try? process.run()
+        process.waitUntilExit()
     }
 
     private static func handleUserPromptSubmit(args: [String], stdin: String) {
@@ -117,6 +143,12 @@ struct CommandHandler {
             print("Failed to decode UserPromptSubmitHookPayload")
             return
         }
+
+        let process = Process()
+        process.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
+        process.arguments = ["-e", "display notification \"handleUserPromptSubmit\" with title \"handleUserPromptSubmit\" sound name \"Glass\""]
+        try? process.run()
+        process.waitUntilExit()
     }
 
     static func handle(_ args: [String]) {
