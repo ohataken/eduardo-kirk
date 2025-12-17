@@ -28,6 +28,14 @@ struct CommandHandler {
         return args.count > 1 && args[1] == "stop"
     }
     
+    static func isValidCommand(_ args: [String]) -> Bool {
+        return isSessionStart(args) ||
+               isSessionEnd(args) ||
+               isUserPromptSubmit(args) ||
+               isNotification(args) ||
+               isStop(args)
+    }
+    
     private static func handleSessionStart(args: [String], stdin: String) async {
         guard !stdin.isEmpty, let data = stdin.data(using: .utf8) else {
             print("Failed to decode SessionStartHookPayload")
