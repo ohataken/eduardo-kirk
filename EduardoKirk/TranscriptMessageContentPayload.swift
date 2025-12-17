@@ -10,4 +10,5 @@ struct TranscriptMessageContentPayload: Codable {
     let text: String?
     let content: String?
     let thinking: String?
+    let input: TranscriptMessageContentInputPayload?
 }
