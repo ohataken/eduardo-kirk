@@ -4,7 +4,7 @@ cask "eduardo-kirk" do
   
   url "https://github.com/ohataken/eduardo-kirk/releases/download/v#{version}/EduardoKirk-#{version}.dmg"
   name "EduardoKirk"
-  desc "Eduardo Kirk application"
+  desc "Session event notification handler"
   homepage "https://github.com/ohataken/eduardo-kirk"
   
   app "EduardoKirk.app"
