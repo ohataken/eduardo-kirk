@@ -3,8 +3,8 @@ cask "eduardo-kirk" do
   sha256 "..."
   
   url "https://github.com/ohataken/eduardo-kirk/releases/download/v#{version}/EduardoKirk-#{version}.dmg"
-  name "EduardoKirk"
-  desc "Session event notification handler"
+  name "eduardo-kirk"
+  desc "desktop notifications for Claude Code"
   homepage "https://github.com/ohataken/eduardo-kirk"
   
   app "EduardoKirk.app"
