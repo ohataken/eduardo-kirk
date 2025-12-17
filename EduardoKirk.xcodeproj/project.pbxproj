@@ -23,13 +23,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1A3566532EF2F3FC00AF587A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1A3566552EF2F3FC00AF587A /* EduardoKirkCommand */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EduardoKirkCommand; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AD8D0912EF136A000656F6F /* EduardoKirk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EduardoKirk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AD8D09E2EF136A100656F6F /* EduardoKirkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EduardoKirkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AD8D0A82EF136A100656F6F /* EduardoKirkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EduardoKirkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		1A3566562EF2F3FC00AF587A /* EduardoKirkCommand */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = EduardoKirkCommand;
+			sourceTree = "<group>";
+		};
 		1AD8D0932EF136A000656F6F /* EduardoKirk */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = EduardoKirk;
@@ -48,6 +66,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1A3566522EF2F3FC00AF587A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1AD8D08E2EF136A000656F6F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -78,6 +103,7 @@
 				1AD8D0932EF136A000656F6F /* EduardoKirk */,
 				1AD8D0A12EF136A100656F6F /* EduardoKirkTests */,
 				1AD8D0AB2EF136A100656F6F /* EduardoKirkUITests */,
+				1A3566562EF2F3FC00AF587A /* EduardoKirkCommand */,
 				1AD8D0922EF136A000656F6F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,6 +114,7 @@
 				1AD8D0912EF136A000656F6F /* EduardoKirk.app */,
 				1AD8D09E2EF136A100656F6F /* EduardoKirkTests.xctest */,
 				1AD8D0A82EF136A100656F6F /* EduardoKirkUITests.xctest */,
+				1A3566552EF2F3FC00AF587A /* EduardoKirkCommand */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +122,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1A3566542EF2F3FC00AF587A /* EduardoKirkCommand */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A35665B2EF2F3FC00AF587A /* Build configuration list for PBXNativeTarget "EduardoKirkCommand" */;
+			buildPhases = (
+				1A3566512EF2F3FC00AF587A /* Sources */,
+				1A3566522EF2F3FC00AF587A /* Frameworks */,
+				1A3566532EF2F3FC00AF587A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				1A3566562EF2F3FC00AF587A /* EduardoKirkCommand */,
+			);
+			name = EduardoKirkCommand;
+			packageProductDependencies = (
+			);
+			productName = EduardoKirkCommand;
+			productReference = 1A3566552EF2F3FC00AF587A /* EduardoKirkCommand */;
+			productType = "com.apple.product-type.tool";
+		};
 		1AD8D0902EF136A000656F6F /* EduardoKirk */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1AD8D0B22EF136A100656F6F /* Build configuration list for PBXNativeTarget "EduardoKirk" */;
@@ -173,6 +222,9 @@
 				LastSwiftUpdateCheck = 2620;
 				LastUpgradeCheck = 2620;
 				TargetAttributes = {
+					1A3566542EF2F3FC00AF587A = {
+						CreatedOnToolsVersion = 26.2;
+					};
 					1AD8D0902EF136A000656F6F = {
 						CreatedOnToolsVersion = 26.2;
 					};
@@ -203,6 +255,7 @@
 				1AD8D0902EF136A000656F6F /* EduardoKirk */,
 				1AD8D09D2EF136A100656F6F /* EduardoKirkTests */,
 				1AD8D0A72EF136A100656F6F /* EduardoKirkUITests */,
+				1A3566542EF2F3FC00AF587A /* EduardoKirkCommand */,
 			);
 		};
 /* End PBXProject section */
@@ -232,6 +285,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1A3566512EF2F3FC00AF587A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1AD8D08D2EF136A000656F6F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -269,6 +329,28 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1A3566592EF2F3FC00AF587A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		1A35665A2EF2F3FC00AF587A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		1AD8D0B02EF136A100656F6F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -526,6 +608,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1A35665B2EF2F3FC00AF587A /* Build configuration list for PBXNativeTarget "EduardoKirkCommand" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A3566592EF2F3FC00AF587A /* Debug */,
+				1A35665A2EF2F3FC00AF587A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1AD8D08C2EF136A000656F6F /* Build configuration list for PBXProject "EduardoKirk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
