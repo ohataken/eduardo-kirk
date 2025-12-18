@@ -9,15 +9,6 @@ import SwiftUI
 
 @main
 struct EduardoKirkApp: App {
-    init() {
-        Task {
-            if (CommandHandler.isValidCommand(CommandLine.arguments)) {
-                await CommandHandler.handle(CommandLine.arguments)
-                exit(0)
-            }
-        }
-    }
-
     var body: some Scene {
         WindowGroup {
             ContentView()
