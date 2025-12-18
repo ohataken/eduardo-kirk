@@ -12,7 +12,7 @@ struct NotificationHookPayload: Codable {
     let transcriptPath: String
     let cwd: String
     let hookEventName: String
-    let timestamp: Date
+    let timestamp: Date?
 
     enum CodingKeys: String, CodingKey {
         case sessionId = "session_id"
