@@ -9,6 +9,7 @@ struct TranscriptFileParser {
     static func getPayloadWithMaxTimestamp(from payloads: [TranscriptPayload]) -> TranscriptPayload? {
         return payloads
             .filter { $0.timestamp != nil }
+            .filter { $0.type == "assistant" }
             .max { a, b in
                 (a.timestamp ?? "") < (b.timestamp ?? "")
             }
