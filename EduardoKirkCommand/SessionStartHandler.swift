@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SessionStartHandler {
+struct SessionStartHandler: CommandHandlerProtocol {
     static func doesCommandMatch(_ args: [String]) -> Bool {
         return args.count > 1 && args[1] == "session-start"
     }
