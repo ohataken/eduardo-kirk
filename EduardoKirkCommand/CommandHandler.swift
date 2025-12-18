@@ -104,8 +104,6 @@ struct CommandHandler {
             }
         }
 
-        print(transcripts)
-
         let process = Process()
         process.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
         process.arguments = ["-e", "display notification \"handleNotification\" with title \"handleNotification\" sound name \"Glass\""]
