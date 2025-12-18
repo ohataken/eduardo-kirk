@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserPromptSubmitHandler {
+struct UserPromptSubmitHandler: CommandHandlerProtocol {
     static func doesCommandMatch(_ args: [String]) -> Bool {
         return args.count > 1 && args[1] == "user-prompt-submit"
     }
