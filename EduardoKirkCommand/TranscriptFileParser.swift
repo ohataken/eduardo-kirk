@@ -6,7 +6,7 @@
 //
 
 struct TranscriptFileParser {
-    static func getPayloadWithMaxTimestamp(from payloads: [TranscriptPayload]) -> TranscriptPayload? {
+    static func latestAssistantTranscript(from payloads: [TranscriptPayload]) -> TranscriptPayload? {
         return payloads
             .filter { $0.timestamp != nil }
             .filter { $0.type == "assistant" }
