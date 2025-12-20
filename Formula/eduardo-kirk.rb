@@ -6,6 +6,6 @@ class EduardoKirk < Formula
   sha256 "7401f20e9ff967bdff47c568089b5ce97e788d5fc96a980a2eb790163a563e65"
   
   def install
-    bin.install "eduardo-kirk"
+    bin.install "EduardoKirkCommand" => "eduardo-kirk"
   end
 end
