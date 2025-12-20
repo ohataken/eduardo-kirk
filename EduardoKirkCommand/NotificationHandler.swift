@@ -41,10 +41,16 @@ struct NotificationHandler: CommandHandlerProtocol {
                 transcripts.append(transcript)
             }
         }
+        
+        let latestTranscript = TranscriptFileParser.latestAssistantTranscript(from: transcripts)
+        
+        let latestTranscriptContent = latestTranscript!.message?.content.first
+        
+        let message = TranscriptFileParser.extractContent(from: latestTranscriptContent!)?.replacingOccurrences(of: "\"", with: "\\\"")
 
         let process = Process()
         process.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
-        process.arguments = ["-e", "display notification \"handleNotification\" with title \"handleNotification\" sound name \"Glass\""]
+        process.arguments = ["-e", "display notification \"handleNotification\" with title \"\(message))\" sound name \"Glass\""]
         try? process.run()
         process.waitUntilExit()
     }
