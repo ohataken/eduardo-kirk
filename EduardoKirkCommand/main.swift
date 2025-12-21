@@ -21,6 +21,8 @@ if SessionStartHandler.doesCommandMatch(args) {
     StopHandler.handle(args: args, stdin: stdin)
 } else if UserPromptSubmitHandler.doesCommandMatch(args) {
     UserPromptSubmitHandler.handle(args: args, stdin: stdin)
+} else if DebugHandler.doesCommandMatch(args) {
+    DebugHandler.handle(args: args, stdin: stdin)
 } else {
     print("Unknown command")
 }
