@@ -3,7 +3,7 @@ class EduardoKirk < Formula
   homepage "https://github.com/ohataken/eduardo-kirk"
   version "0.1.1"
   url "https://github.com/ohataken/eduardo-kirk/releases/download/v#{version}/eduardo-kirk-#{version}.tar.gz"
-  sha256 "7401f20e9ff967bdff47c568089b5ce97e788d5fc96a980a2eb790163a563e65"
+  sha256 "e5b54912eefffc0b06c3add8e71bda27e75826f1b50d65a53d65cc96be184054"
   
   def install
     bin.install "EduardoKirkCommand" => "eduardo-kirk"
