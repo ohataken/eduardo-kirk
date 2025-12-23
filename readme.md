@@ -11,7 +11,7 @@ brew install eduardo-kirk
 
 ### .claude/settings.json example
 
-```
+```json
 {
   "hooks": {
     "SessionStart": [
