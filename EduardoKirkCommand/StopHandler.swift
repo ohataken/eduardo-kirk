@@ -26,7 +26,7 @@ struct StopHandler: CommandHandlerProtocol {
 
         let process = Process()
         process.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
-        process.arguments = ["-e", "display notification \"handleStop\" with title \"handleStop\" sound name \"Glass\""]
+        process.arguments = ["-e", "display notification \"handleStop\" with title \"Stop - Claude Code\" sound name \"Glass\""]
         try? process.run()
         process.waitUntilExit()
     }
