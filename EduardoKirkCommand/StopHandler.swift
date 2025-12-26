@@ -24,9 +24,33 @@ struct StopHandler: CommandHandlerProtocol {
             return
         }
 
+        guard let fileContent = try? String(contentsOfFile: payload.transcriptPath, encoding: .utf8) else {
+            print("Failed to read transcript file")
+            return
+        }
+
+        var transcripts: [TranscriptPayload] = []
+        let lines = fileContent.split(separator: "\n", omittingEmptySubsequences: false).map(String.init)
+        
+        for line in lines {
+            guard let lineData = line.data(using: .utf8) else {
+                continue
+            }
+
+            if let transcript = try? decoder.decode(TranscriptPayload.self, from: lineData) {
+                transcripts.append(transcript)
+            }
+        }
+
+        let latestTranscript = TranscriptFileParser.latestAssistantTranscript(from: transcripts)
+
+        let latestTranscriptContent = latestTranscript!.message?.content.first
+
+        let message = TranscriptFileParser.extractContent(from: latestTranscriptContent!)?.replacingOccurrences(of: "\"", with: "\\\"")
+
         let process = Process()
         process.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
-        process.arguments = ["-e", "display notification \"handleStop\" with title \"Stop - Claude Code\" sound name \"Glass\""]
+        process.arguments = ["-e", "display notification \"\(message!)\" with title \"Stop - Claude Code\" sound name \"Glass\""]
         try? process.run()
         process.waitUntilExit()
     }
