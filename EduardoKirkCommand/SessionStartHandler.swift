@@ -26,7 +26,7 @@ struct SessionStartHandler: CommandHandlerProtocol {
 
         let process = Process()
         process.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
-        process.arguments = ["-e", "display notification \"handleSessionStart\" with title \"SessionStart - Claude Code\" sound name \"Glass\""]
+        process.arguments = ["-e", "display notification \"\(payload.cwd)\" with title \"SessionStart - Claude Code\" sound name \"Glass\""]
         try? process.run()
         process.waitUntilExit()
     }
