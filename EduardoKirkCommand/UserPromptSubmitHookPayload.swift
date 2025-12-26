@@ -9,7 +9,6 @@ struct UserPromptSubmitHookPayload: Codable {
     let sessionId: String
     let transcriptPath: String
     let cwd: String
-    let permissionMode: String
     let hookEventName: String
     let prompt: String
 
@@ -17,7 +16,6 @@ struct UserPromptSubmitHookPayload: Codable {
         case sessionId = "session_id"
         case transcriptPath = "transcript_path"
         case cwd
-        case permissionMode = "permission_mode"
         case hookEventName = "hook_event_name"
         case prompt
     }
