@@ -5,7 +5,7 @@ RSpec.describe "EduardoKirk stop" do
     it "outputs nothing to stdout and stderr" do
       stdin_data = {
         session_id: "00000000-0000-0000-0000-000000000000",
-        transcript_path: Pathname.new(__dir__).to_s,
+        transcript_path: Pathname.new(__dir__).join("./transcript_file.jsonl").to_s,
         cwd: Pathname.getwd.to_s,
         hook_event_name: "Stop",
         stop_hook_active: false
