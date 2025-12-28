@@ -8,4 +8,7 @@
 struct TranscriptMessageContentInputPayload: Codable {
     let description: String?
     let plan: String?
+    let file_path: String?
+    let new_string: String?
+    let old_string: String?
 }
