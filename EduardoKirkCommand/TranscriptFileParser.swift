@@ -21,8 +21,10 @@ struct TranscriptFileParser {
             let input = contentPayload.input!
             if let description = input.description {
                 return description
+            } else if let plan = input.plan {
+                return plan
             }
-            return input.plan
+            return nil
         case "thinking":
             return contentPayload.thinking
         case "tool_result":
