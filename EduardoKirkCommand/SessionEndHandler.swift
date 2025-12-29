@@ -8,6 +8,8 @@
 import Foundation
 
 struct SessionEndHandler: CommandHandlerProtocol {
+    private static let notifier = OsascriptNotifier()
+
     static func doesCommandMatch(_ args: [String]) -> Bool {
         return args.count > 1 && args[1] == "session-end"
     }
@@ -24,10 +26,10 @@ struct SessionEndHandler: CommandHandlerProtocol {
             return
         }
 
-        let process = Process()
-        process.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
-        process.arguments = ["-e", "display notification \"\(payload.cwd)\" with title \"SessionEnd - Claude Code\" sound name \"Glass\""]
-        try? process.run()
-        process.waitUntilExit()
+        try? notifier.notify(
+            message: payload.cwd,
+            title: "SessionEnd - Claude Code",
+            soundName: "Glass"
+        )
     }
 }

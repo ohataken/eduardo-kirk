@@ -8,6 +8,8 @@
 import Foundation
 
 struct UserPromptSubmitHandler: CommandHandlerProtocol {
+    private static let notifier = OsascriptNotifier()
+
     static func doesCommandMatch(_ args: [String]) -> Bool {
         return args.count > 1 && args[1] == "user-prompt-submit"
     }
@@ -24,10 +26,10 @@ struct UserPromptSubmitHandler: CommandHandlerProtocol {
             return
         }
 
-        let process = Process()
-        process.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
-        process.arguments = ["-e", "display notification \"\(payload.prompt)\" with title \"UserPromptSubmit - Claude Code\" sound name \"Glass\""]
-        try? process.run()
-        process.waitUntilExit()
+        try? notifier.notify(
+            message: payload.prompt,
+            title: "UserPromptSubmit - Claude Code",
+            soundName: "Glass"
+        )
     }
 }
