@@ -8,15 +8,17 @@
 import Foundation
 
 struct DebugHandler: CommandHandlerProtocol {
+    private static let notifier = OsascriptNotifier()
+
     static func doesCommandMatch(_ args: [String]) -> Bool {
         return args.count > 1 && args[1] == "debug"
     }
 
     static func handle(args: [String], stdin: String) {
-        let process = Process()
-        process.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
-        process.arguments = ["-e", "display notification \"DebugHandler\" with title \"DebugHandler\" sound name \"Glass\""]
-        try? process.run()
-        process.waitUntilExit()
+        try? notifier.notify(
+            message: "DebugHandler",
+            title: "DebugHandler",
+            soundName: "Glass"
+        )
     }
 }

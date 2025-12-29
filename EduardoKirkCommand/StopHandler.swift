@@ -8,6 +8,8 @@
 import Foundation
 
 struct StopHandler: CommandHandlerProtocol {
+    private static let notifier = OsascriptNotifier()
+
     static func doesCommandMatch(_ args: [String]) -> Bool {
         return args.count > 1 && args[1] == "stop"
     }
@@ -46,12 +48,12 @@ struct StopHandler: CommandHandlerProtocol {
 
         let latestTranscriptContent = latestTranscript!.message?.content.first
 
-        let message = TranscriptFileParser.extractContent(from: latestTranscriptContent!)?.replacingOccurrences(of: "\"", with: "\\\"")
+        let message = TranscriptFileParser.extractContent(from: latestTranscriptContent!)
 
-        let process = Process()
-        process.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
-        process.arguments = ["-e", "display notification \"\(message!)\" with title \"Stop - Claude Code\" sound name \"Glass\""]
-        try? process.run()
-        process.waitUntilExit()
+        try? notifier.notify(
+            message: message ?? "",
+            title: "Stop - Claude Code",
+            soundName: "Glass"
+        )
     }
 }
