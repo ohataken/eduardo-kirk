@@ -23,6 +23,8 @@ struct TranscriptFileParser {
                 return description
             } else if let plan = input.plan {
                 return plan
+            } else if let file_path = input.file_path {
+                return file_path
             }
             return nil
         case "thinking":
