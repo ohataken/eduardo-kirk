@@ -31,6 +31,8 @@ struct TranscriptFileParser {
             return contentPayload.thinking
         case "tool_result":
             return contentPayload.content
+        case "text":
+            return contentPayload.text
         default:
             return contentPayload.text
         }
