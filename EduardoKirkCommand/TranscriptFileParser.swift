@@ -34,7 +34,7 @@ struct TranscriptFileParser {
         case "text":
             return contentPayload.text
         default:
-            return contentPayload.text
+            return contentPayload.type
         }
     }
 }
