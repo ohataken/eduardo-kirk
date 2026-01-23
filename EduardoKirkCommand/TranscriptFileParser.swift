@@ -26,7 +26,7 @@ struct TranscriptFileParser {
             } else if let file_path = input.file_path {
                 return file_path
             }
-            return nil
+            return "tool_use"
         case "thinking":
             return contentPayload.thinking
         case "tool_result":
