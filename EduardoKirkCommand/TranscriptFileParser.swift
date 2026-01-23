@@ -20,7 +20,7 @@ struct TranscriptFileParser {
         case "tool_use":
             let input = contentPayload.input!
             if let description = input.description {
-                return description
+                return "description"
             } else if let plan = input.plan {
                 return plan
             } else if let file_path = input.file_path {
