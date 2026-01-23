@@ -1,0 +1,49 @@
+name: build-eduardo-kirk-command
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to build'
+        required: true
+        default: 'main'
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.inputs.branch }}
+
+    - name: Set up Xcode
+      run: |
+        sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+        xcode-select -p
+
+    - name: Build EduardoKirkCommand
+      run: |
+        xcodebuild build \
+          -target EduardoKirkCommand \
+          -configuration Release \
+          -derivedDataPath Build/DerivedData
+
+    - name: Create archive
+      if: success()
+      run: |
+        cd Build/DerivedData/Build/Products/Release/
+        tar czf EduardoKirkCommand.tar.gz EduardoKirkCommand
+
+    - name: Calculate SHA256
+      if: success()
+      run: |
+        shasum -a 256 Build/DerivedData/Build/Products/Release/EduardoKirkCommand.tar.gz
+
+    - name: Upload build artifacts
+      if: success()
+      uses: actions/upload-artifact@v3
+      with:
+        name: EduardoKirkCommand-build
+        path: Build/DerivedData/Build/Products/Release/EduardoKirkCommand.tar.gz
+        retention-days: 1
