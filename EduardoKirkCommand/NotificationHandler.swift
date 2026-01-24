@@ -47,7 +47,7 @@ struct NotificationHandler: CommandHandlerProtocol {
 
         try? notifier.notify(
             message: message,
-            title: "Notification - Claude Code",
+            title: "Notification (\(content.type)) - Claude Code",
             soundName: "Glass"
         )
     }
