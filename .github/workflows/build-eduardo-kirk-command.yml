@@ -27,7 +27,6 @@ jobs:
         xcodebuild build \
           -target EduardoKirkCommand \
           -configuration Release \
-          -derivedDataPath Build/DerivedData
 
     - name: Create archive
       if: success()
