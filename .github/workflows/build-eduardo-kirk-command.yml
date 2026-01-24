@@ -27,22 +27,23 @@ jobs:
         xcodebuild build \
           -scheme EduardoKirkCommand \
           -configuration Release \
+          -derivedDataPath build
 
     - name: Create archive
       if: success()
       run: |
-        cd build/Release
+        cd build/Build/Products/Release
         tar -czf EduardoKirkCommand.tar.gz EduardoKirkCommand
 
     - name: Calculate SHA256
       if: success()
       run: |
-        shasum -a 256 build/Release/EduardoKirkCommand.tar.gz
+        shasum -a 256 build/Build/Products/Release/EduardoKirkCommand.tar.gz
 
     - name: Upload build artifacts
       if: success()
       uses: actions/upload-artifact@v4
       with:
         name: EduardoKirkCommand-build
-        path: build/Release/EduardoKirkCommand.tar.gz
+        path: build/Build/Products/Release/EduardoKirkCommand.tar.gz
         retention-days: 1
