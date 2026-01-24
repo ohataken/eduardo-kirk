@@ -45,11 +45,11 @@ struct StopHandler: CommandHandlerProtocol {
             }
         }
 
-        let latestTranscript = TranscriptFileParser.latestAssistantTranscript(from: transcripts)
-
-        let latestTranscriptContent = latestTranscript!.message?.content.first
-
-        let message = TranscriptFileParser.extractContent(from: latestTranscriptContent!)
+        guard let latestTranscript = TranscriptFileParser.latestAssistantTranscript(from: transcripts),
+              let content = latestTranscript.message?.content.first,
+              let message = TranscriptFileParser.extractContent(from: content) else {
+            return
+        }
 
         try? notifier.notify(
             message: message ?? "",
