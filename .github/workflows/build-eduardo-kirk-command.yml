@@ -31,7 +31,7 @@ jobs:
 
     - name: Create archive
       run: |
-        tar -czf EduardoKirkCommand.tar.gz -C build/Build/Products/Release eduardo-kirk-x.x.x
+        tar -czf eduardo-kirk-x.x.x.tar.gz -C build/Build/Products/Release EduardoKirkCommand
 
     - name: Calculate SHA256
       run: |
