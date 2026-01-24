@@ -32,7 +32,7 @@ jobs:
       if: success()
       run: |
         cd build/Release
-        tar czf EduardoKirkCommand.tar.gz EduardoKirkCommand
+        tar -czf EduardoKirkCommand.tar.gz EduardoKirkCommand
 
     - name: Calculate SHA256
       if: success()
