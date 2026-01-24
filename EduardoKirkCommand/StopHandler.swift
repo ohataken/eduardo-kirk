@@ -46,7 +46,7 @@ struct StopHandler: CommandHandlerProtocol {
         }
 
         try? notifier.notify(
-            message: message ?? "",
+            message: message,
             title: "Stop - Claude Code",
             soundName: "Glass"
         )
