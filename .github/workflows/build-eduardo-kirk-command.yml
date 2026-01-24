@@ -32,7 +32,7 @@ jobs:
     - name: Create archive
       if: success()
       run: |
-        tar -czf EduardoKirkCommand.tar.gz build/Build/Products/Release/EduardoKirkCommand
+        tar -czf EduardoKirkCommand.tar.gz -C build/Build/Products/Release EduardoKirkCommand
 
     - name: Calculate SHA256
       if: success()
