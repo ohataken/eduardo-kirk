@@ -29,6 +29,12 @@ jobs:
           -configuration Release \
           -derivedDataPath build
 
+    - name: Sign with ad-hoc signature
+      if: success()
+      run: |
+        codesign --force --sign - build/Build/Products/Release/EduardoKirkCommand
+        codesign -vv build/Build/Products/Release/EduardoKirkCommand
+
     - name: Create archive
       if: success()
       run: |
