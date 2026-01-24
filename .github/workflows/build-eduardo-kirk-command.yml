@@ -30,17 +30,14 @@ jobs:
           -derivedDataPath build
 
     - name: Create archive
-      if: success()
       run: |
         tar -czf EduardoKirkCommand.tar.gz -C build/Build/Products/Release EduardoKirkCommand
 
     - name: Calculate SHA256
-      if: success()
       run: |
         shasum -a 256 EduardoKirkCommand.tar.gz
 
     - name: Upload build artifacts
-      if: success()
       uses: actions/upload-artifact@v4
       with:
         name: EduardoKirkCommand-build
