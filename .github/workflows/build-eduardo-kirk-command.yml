@@ -31,15 +31,15 @@ jobs:
 
     - name: Create archive
       run: |
-        tar -czf EduardoKirkCommand.tar.gz -C build/Build/Products/Release EduardoKirkCommand
+        tar -czf EduardoKirkCommand.tar.gz -C build/Build/Products/Release eduardo-kirk-x.x.x
 
     - name: Calculate SHA256
       run: |
-        shasum -a 256 EduardoKirkCommand.tar.gz
+        shasum -a 256 eduardo-kirk-x.x.x.tar.gz
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: EduardoKirkCommand-build
-        path: EduardoKirkCommand.tar.gz
+        name: eduardo-kirk-build
+        path: eduardo-kirk-x.x.x.tar.gz
         retention-days: 1
