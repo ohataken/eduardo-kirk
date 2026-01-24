@@ -21,6 +21,7 @@ struct StopHandler: CommandHandlerProtocol {
         }
 
         let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
         guard let payload = try? decoder.decode(StopHookPayload.self, from: data) else {
             print("Failed to decode StopHookPayload")
             return

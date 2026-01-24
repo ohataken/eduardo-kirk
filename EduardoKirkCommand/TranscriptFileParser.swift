@@ -11,7 +11,7 @@ struct TranscriptFileParser {
             .filter { $0.timestamp != nil }
             .filter { $0.type == "assistant" }
             .max { a, b in
-                (a.timestamp ?? "") < (b.timestamp ?? "")
+                a.timestamp! < b.timestamp!
             }
     }
 
