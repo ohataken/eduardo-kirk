@@ -31,18 +31,18 @@ jobs:
     - name: Create archive
       if: success()
       run: |
-        cd Build/DerivedData/Build/Products/Release/
+        cd build/Release
         tar czf EduardoKirkCommand.tar.gz EduardoKirkCommand
 
     - name: Calculate SHA256
       if: success()
       run: |
-        shasum -a 256 Build/DerivedData/Build/Products/Release/EduardoKirkCommand.tar.gz
+        shasum -a 256 build/Release/EduardoKirkCommand.tar.gz
 
     - name: Upload build artifacts
       if: success()
       uses: actions/upload-artifact@v4
       with:
         name: EduardoKirkCommand-build
-        path: Build/DerivedData/Build/Products/Release/EduardoKirkCommand.tar.gz
+        path: build/Release/EduardoKirkCommand.tar.gz
         retention-days: 1
