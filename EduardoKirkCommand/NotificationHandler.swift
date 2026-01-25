@@ -48,7 +48,7 @@ struct NotificationHandler: CommandHandlerProtocol {
         try? notifier.notify(
             message: message,
             title: "Notification (\(content.type)) - \(payload.cwdURL.lastPathComponent)",
-            soundName: "Glass"
+            soundName: content.soundName
         )
     }
 }
