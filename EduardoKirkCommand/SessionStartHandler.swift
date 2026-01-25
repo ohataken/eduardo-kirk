@@ -28,7 +28,7 @@ struct SessionStartHandler: CommandHandlerProtocol {
 
         try? notifier.notify(
             message: payload.cwd,
-            title: "SessionStart - Claude Code",
+            title: "SessionStart - \(payload.cwdURL.lastPathComponent)",
             soundName: "Glass"
         )
     }
