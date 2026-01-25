@@ -18,15 +18,7 @@ struct TranscriptFileParser {
     static func extractContent(from contentPayload: TranscriptMessageContentPayload) -> String? {
         switch contentPayload.type {
         case "tool_use":
-            let input = contentPayload.input!
-            if let description = input.description {
-                return "description"
-            } else if let plan = input.plan {
-                return "plan"
-            } else if let file_path = input.file_path {
-                return file_path
-            }
-            return "tool_use"
+            return contentPayload.content
         case "thinking":
             return contentPayload.thinking
         case "tool_result":
