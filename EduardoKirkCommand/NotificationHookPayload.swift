@@ -21,4 +21,8 @@ struct NotificationHookPayload: Codable {
         case hookEventName = "hook_event_name"
         case timestamp
     }
+
+    var cwdURL: URL {
+        URL(fileURLWithPath: cwd)
+    }
 }
