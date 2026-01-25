@@ -5,6 +5,8 @@
 //  Created by ohataken on 2025/12/17.
 //
 
+import Foundation
+
 struct SessionStartHookPayload: Codable {
     let sessionId: String
     let transcriptPath: String
@@ -18,5 +20,9 @@ struct SessionStartHookPayload: Codable {
         case cwd
         case hookEventName = "hook_event_name"
         case source
+    }
+
+    var cwdURL: URL {
+        URL(fileURLWithPath: cwd)
     }
 }
