@@ -44,10 +44,8 @@ struct StopHandler: CommandHandlerProtocol {
             return
         }
 
-        let message = TranscriptFileParser.extractContent(from: content)
-
         try? notifier.notify(
-            message: message,
+            message: content.message,
             title: "Stop (\(content.type)) - \(payload.cwdURL.lastPathComponent)",
             soundName: "Glass"
         )
