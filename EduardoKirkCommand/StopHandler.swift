@@ -40,14 +40,14 @@ struct StopHandler: CommandHandlerProtocol {
         }
 
         guard let latestTranscript = TranscriptFileParser.latestAssistantTranscript(from: transcripts),
-              let content = latestTranscript.message?.content.first else {
+              let message = latestTranscript.message else {
             return
         }
 
         try? notifier.notify(
-            message: content.message,
-            title: "Stop (\(content.type)) - \(payload.cwdURL.lastPathComponent)",
-            soundName: "Glass"
+            message: message.message,
+            title: "Stop (\(message.type)) - \(payload.cwdURL.lastPathComponent)",
+            soundName: message.content.soundName
         )
     }
 }
