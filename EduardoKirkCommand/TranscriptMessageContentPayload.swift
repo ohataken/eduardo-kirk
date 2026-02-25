@@ -12,19 +12,6 @@ struct TranscriptMessageContentPayload: Codable {
     let thinking: String?
     let input: TranscriptMessageContentInputPayload?
 
-    var message: String {
-        switch type {
-        case "tool_use", "tool_result":
-            return content ?? type
-        case "thinking":
-            return thinking ?? type
-        case "text":
-            return text ?? type
-        default:
-            return type
-        }
-    }
-
     var soundName: String? {
         switch type {
         case "tool_use":

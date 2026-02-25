@@ -16,4 +16,17 @@ struct TranscriptFileParser {
                 a.timestamp! < b.timestamp!
             }
     }
+
+    static func extractContent(from contentPayload: TranscriptMessageContentPayload) -> String {
+        switch contentPayload.type {
+        case "tool_use", "tool_result":
+            return contentPayload.content ?? contentPayload.type
+        case "thinking":
+            return contentPayload.thinking ?? contentPayload.type
+        case "text":
+            return contentPayload.text ?? contentPayload.type
+        default:
+            return contentPayload.type
+        }
+    }
 }
