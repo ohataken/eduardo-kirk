@@ -40,6 +40,7 @@ struct NotificationHandler: CommandHandlerProtocol {
         
         guard let latestTranscript = TranscriptFileParser.latestAssistantTranscript(from: transcripts),
               let content = latestTranscript.message?.content.first else {
+            print("No assistant message found in transcript")
             return
         }
 
