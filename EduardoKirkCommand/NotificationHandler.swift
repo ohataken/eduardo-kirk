@@ -40,11 +40,10 @@ struct NotificationHandler: CommandHandlerProtocol {
         }
         
         guard let latestTranscript = TranscriptFileParser.latestAssistantTranscript(from: transcripts),
-              let content = latestTranscript.message?.content.first else {
+              let content = latestTranscript.message?.content.first,
+              let message = TranscriptFileParser.extractContent(from: content) else {
             return
         }
-
-        let message = TranscriptFileParser.extractContent(from: content)
 
         try? notifier.notify(
             message: message,
