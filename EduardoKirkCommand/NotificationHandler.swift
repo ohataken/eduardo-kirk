@@ -44,8 +44,10 @@ struct NotificationHandler: CommandHandlerProtocol {
             return
         }
 
+        let message = TranscriptFileParser.extractContent(from: content)
+
         try? notifier.notify(
-            message: content.message,
+            message: message,
             title: "Notification (\(content.type)) - \(payload.cwdURL.lastPathComponent)",
             soundName: content.soundName
         )
