@@ -34,9 +34,8 @@ struct StopHandler: CommandHandlerProtocol {
 
         let lines = fileContent.split(separator: "\n", omittingEmptySubsequences: false).map(String.init)
 
-        let transcripts = lines.compactMap { line -> TranscriptPayload? in
-            guard let data = line.data(using: .utf8) else { return nil }
-            return try? decoder.decode(TranscriptPayload.self, from: data)
+        let transcripts = lines.compactMap { line in
+            try? decoder.decode(TranscriptPayload.self, from: Data(line.utf8))
         }
 
         guard let latestTranscript = TranscriptFileParser.latestAssistantTranscript(from: transcripts),
