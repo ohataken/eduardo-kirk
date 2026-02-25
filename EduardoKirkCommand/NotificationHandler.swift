@@ -40,14 +40,14 @@ struct NotificationHandler: CommandHandlerProtocol {
         }
         
         guard let latestTranscript = TranscriptFileParser.latestAssistantTranscript(from: transcripts),
-              let message = latestTranscript.message else {
+              let content = latestTranscript.message?.content.first else {
             return
         }
 
         try? notifier.notify(
-            message: message.message,
-            title: "Notification (\(message.content.type)) - \(payload.cwdURL.lastPathComponent)",
-            soundName: message.content.soundName
+            message: content.message,
+            title: "Notification (\(content.type)) - \(payload.cwdURL.lastPathComponent)",
+            soundName: content.soundName
         )
     }
 }
