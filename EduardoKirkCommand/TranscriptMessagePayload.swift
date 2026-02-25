@@ -10,7 +10,7 @@ struct TranscriptMessagePayload: Codable {
     let id: String
     let type: String
     let role: String
-    let content: TranscriptMessageContentUnion
+    let content: [TranscriptMessageContentPayload]
     let stopReason: String?
     let stopSequence: String?
 
@@ -22,9 +22,5 @@ struct TranscriptMessagePayload: Codable {
         case content
         case stopReason = "stop_reason"
         case stopSequence = "stop_sequence"
-    }
-    
-    var message: String {
-        return content.message
     }
 }
