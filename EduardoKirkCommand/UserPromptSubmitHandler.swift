@@ -16,7 +16,7 @@ struct UserPromptSubmitHandler: CommandHandlerProtocol {
     
     static func handle(args: [String], stdin: String) {
         guard !stdin.isEmpty, let data = stdin.data(using: .utf8) else {
-            print("Failed to decode UserPromptSubmitHookPayload")
+            print("No input received from stdin")
             return
         }
 
