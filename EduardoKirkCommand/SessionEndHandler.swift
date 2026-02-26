@@ -16,13 +16,13 @@ struct SessionEndHandler: CommandHandlerProtocol {
     
     static func handle(args: [String], stdin: String) {
         guard !stdin.isEmpty, let data = stdin.data(using: .utf8) else {
-            print("No input received from stdin")
+            fputs("No input received from stdin", stderr)
             return
         }
 
         let decoder = JSONDecoder()
         guard let payload = try? decoder.decode(SessionEndHookPayload.self, from: data) else {
-            print("Failed to decode SessionEndHookPayload")
+            fputs("Failed to decode SessionEndHookPayload", stderr)
             return
         }
 

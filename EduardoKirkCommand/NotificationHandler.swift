@@ -16,19 +16,19 @@ struct NotificationHandler: CommandHandlerProtocol {
     
     static func handle(args: [String], stdin: String) {
         guard !stdin.isEmpty, let data = stdin.data(using: .utf8) else {
-            print("No input received from stdin")
+            fputs("No input received from stdin", stderr)
             return
         }
 
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         guard let payload = try? decoder.decode(NotificationHookPayload.self, from: data) else {
-            print("Failed to decode NotificationHookPayload")
+            fputs("Failed to decode NotificationHookPayload", stderr)
             return
         }
 
         guard let fileContent = try? String(contentsOfFile: payload.transcriptPath, encoding: .utf8) else {
-            print("Failed to read transcript file")
+            fputs("Failed to read transcript file", stderr)
             return
         }
 
@@ -40,7 +40,7 @@ struct NotificationHandler: CommandHandlerProtocol {
         
         guard let latestTranscript = TranscriptFileParser.latestAssistantTranscript(from: transcripts),
               let content = latestTranscript.message?.content.first else {
-            print("No assistant message found in transcript")
+            fputs("No assistant message found in transcript", stderr)
             return
         }
 
