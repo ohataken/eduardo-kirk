@@ -7,6 +7,7 @@
 
 struct TranscriptMessageContentPayload: Codable {
     let type: String
+    let name: String
     let text: String?
     let content: String?
     let thinking: String?
