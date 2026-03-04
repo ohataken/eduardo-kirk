@@ -44,7 +44,7 @@ struct NotificationHandler: CommandHandlerProtocol {
             return
         }
 
-        let message = TranscriptFileParser.extractContent(from: content)
+        let message = content.message ?? content.type
 
         try? notifier.notify(
             message: message,
