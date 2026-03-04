@@ -12,7 +12,7 @@ struct TranscriptMessageContentInputPayload: Codable {
 
     var content: String? {
         if description != nil {
-            return "description"
+            return description
         } else if plan != nil {
             return "plan"
         } else if file_path != nil {
