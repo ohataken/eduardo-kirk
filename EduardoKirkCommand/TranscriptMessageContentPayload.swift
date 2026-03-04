@@ -15,7 +15,7 @@ struct TranscriptMessageContentPayload: Codable {
     var message: String? {
         switch type {
         case "tool_use", "tool_result":
-            return content ?? type
+            return input?.content ?? type
         case "thinking":
             return thinking ?? type
         case "text":
