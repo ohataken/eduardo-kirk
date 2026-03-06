@@ -18,11 +18,11 @@ struct TranscriptMessageContentPayload: Codable {
         case "tool_use", "tool_result":
             return input?.description ?? name
         case "thinking":
-            return thinking ?? type
+            return thinking
         case "text":
-            return text ?? type
+            return text
         default:
-            return type
+            return nil
         }
     }
 
