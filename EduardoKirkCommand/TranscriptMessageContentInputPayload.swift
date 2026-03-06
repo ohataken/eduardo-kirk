@@ -7,12 +7,4 @@
 
 struct TranscriptMessageContentInputPayload: Codable {
     let description: String?
-
-    var content: String? {
-        if description != nil {
-            return description
-        } else {
-            return nil
-        }
-    }
 }
