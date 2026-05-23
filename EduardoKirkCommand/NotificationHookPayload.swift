@@ -12,6 +12,7 @@ struct NotificationHookPayload: Codable {
     let transcriptPath: String
     let cwd: String
     let hookEventName: String
+    let notificationType: String?
     let timestamp: Date?
 
     enum CodingKeys: String, CodingKey {
@@ -19,6 +20,7 @@ struct NotificationHookPayload: Codable {
         case transcriptPath = "transcript_path"
         case cwd
         case hookEventName = "hook_event_name"
+        case notificationType = "notification_type"
         case timestamp
     }
 
