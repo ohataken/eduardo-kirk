@@ -13,6 +13,7 @@ struct StopHookPayload: Codable {
     let cwd: String
     let hookEventName: String
     let stopHookActive: Bool
+    let notificationType: String?
 
     enum CodingKeys: String, CodingKey {
         case sessionId = "session_id"
@@ -20,6 +21,7 @@ struct StopHookPayload: Codable {
         case cwd
         case hookEventName = "hook_event_name"
         case stopHookActive = "stop_hook_active"
+        case notificationType = "notification_type"
     }
 
     var cwdURL: URL {
