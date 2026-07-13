@@ -28,8 +28,7 @@ struct UserPromptSubmitHandler: CommandHandlerProtocol {
 
         try? notifier.notify(
             message: payload.prompt,
-            title: "UserPromptSubmit - \(payload.cwdURL.lastPathComponent)",
-            soundName: "Glass"
+            title: "UserPromptSubmit - \(payload.cwdURL.lastPathComponent)"
         )
     }
 }
