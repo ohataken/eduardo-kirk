@@ -15,5 +15,20 @@ RSpec.describe "EduardoKirk stop" do
       expect(stdout).to be_empty
       expect(stderr).to be_empty
     end
+
+    it "skips idol_prompt stops" do
+      stdin_data = {
+        session_id: "00000000-0000-0000-0000-000000000000",
+        transcript_path: Pathname.new(__dir__).join("./missing_transcript_file.jsonl").to_s,
+        cwd: Pathname.getwd.to_s,
+        hook_event_name: "Stop",
+        stop_hook_active: false,
+        notification_type: "idol_prompt"
+      }
+
+      stdout, stderr, status = Open3.capture3(ENV["EDUARDO_KIRK_PATH"], "stop", stdin_data: stdin_data.to_json)
+      expect(stdout).to be_empty
+      expect(stderr).to be_empty
+    end
   end
 end
