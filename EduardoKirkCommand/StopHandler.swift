@@ -27,6 +27,10 @@ struct StopHandler: CommandHandlerProtocol {
             return
         }
 
+        guard payload.notificationType != "idol_prompt" else {
+            return
+        }
+
         guard let fileContent = try? String(contentsOfFile: payload.transcriptPath, encoding: .utf8) else {
             fputs("Failed to read transcript file", stderr)
             return
