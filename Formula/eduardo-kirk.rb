@@ -1,9 +1,9 @@
 class EduardoKirk < Formula
   desc "desktop notifications for Claude Code"
   homepage "https://github.com/ohataken/eduardo-kirk"
-  version "0.1.16"
+  version "0.1.17"
   url "https://github.com/ohataken/eduardo-kirk/releases/download/v#{version}/eduardo-kirk-#{version}.tar.gz"
-  sha256 "5e668c5b3ceb04f8451fce977d9b37d3adaa4902fa42ab674ffcf4081c2eb002"
+  sha256 "f08d0249bb382ac0a08a4411cb00fbd18aabd188a62a02581169f28102dfaa38"
   
   def install
     bin.install "EduardoKirkCommand" => "eduardo-kirk"
