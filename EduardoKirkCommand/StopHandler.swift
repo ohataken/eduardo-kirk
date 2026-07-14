@@ -27,7 +27,7 @@ struct StopHandler: CommandHandlerProtocol {
             return
         }
 
-        guard payload.notificationType != "idol_prompt" else {
+        guard payload.notificationType != "idle_prompt" else {
             return
         }
 
