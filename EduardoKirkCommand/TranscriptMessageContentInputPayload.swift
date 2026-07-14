@@ -8,4 +8,11 @@
 struct TranscriptMessageContentInputPayload: Codable {
     let description: String?
     let command: String?
+    let filePath: String?
+
+    enum CodingKeys: String, CodingKey {
+        case description
+        case command
+        case filePath = "file_path"
+    }
 }
