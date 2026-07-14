@@ -10,11 +10,13 @@ struct TranscriptMessageContentInputPayload: Codable {
     let command: String?
     let filePath: String?
     let content: String?
+    let offset: Int?
 
     enum CodingKeys: String, CodingKey {
         case description
         case command
         case filePath = "file_path"
         case content
+        case offset
     }
 }
