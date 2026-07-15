@@ -18,7 +18,7 @@ struct DebugHandler: CommandHandlerProtocol {
         try? notifier.notify(
             message: "DebugHandler",
             title: "DebugHandler",
-            soundName: "Glass"
+            soundName: "Bottle"
         )
     }
 }
