@@ -17,14 +17,14 @@ RSpec.describe "EduardoKirk notification" do
       expect(stderr).to be_empty
     end
 
-    it "skips idol_prompt notifications" do
+    it "skips idle_prompt notifications" do
       stdin_data = {
         session_id: "00000000-0000-0000-0000-000000000000",
         transcript_path: Pathname.new(__dir__).join("./missing_transcript_file.jsonl").to_s,
         cwd: Pathname.getwd.to_s,
         hook_event_name: "Notification",
         message: "hello world",
-        notification_type: "idol_prompt"
+        notification_type: "idle_prompt"
       }
 
       stdout, stderr, status = Open3.capture3(ENV["EDUARDO_KIRK_PATH"], "notification", stdin_data: stdin_data.to_json)
