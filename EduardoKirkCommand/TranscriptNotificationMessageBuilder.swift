@@ -28,11 +28,11 @@ struct TranscriptNotificationMessageBuilder {
         case "Bash":
             return input.description ?? input.command.map { "Bash: \($0)" } ?? content.name
         case "Read":
-            return fileMessage(prefix: "Read", input: input)
+            return input.description ?? fileMessage(prefix: "Read", input: input)
         case "Write":
-            return writeMessage(input: input)
+            return input.description ?? writeMessage(input: input)
         case "Edit":
-            return editMessage(input: input)
+            return input.description ?? editMessage(input: input)
         default:
             return input.description ?? content.name
         }
