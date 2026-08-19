@@ -10,6 +10,13 @@ brew trust ohataken/eduardo-kirk
 brew install eduardo-kirk
 ```
 
+notifications go through `osascript`, which posts them as Script Editor. launch Script Editor,
+run the script below once, and allow the notification.
+
+```applescript
+display notification "test" with title "test"
+```
+
 ### .claude/settings.json example
 
 ```json
